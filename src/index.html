@@ -103,10 +103,12 @@
                                     <span class="fs-6 fw-bold">
                                         {{ contact.name }}
                                     </span>
-                                    <span>Ultimo messaggio inviato</span>
+                                    <span>{{ getLastMessage(contact) }}</span>
                                 </div>
 
-                                <span class="me-2"> 12.50 </span>
+                                <span class="me-2">
+                                    {{ getLastHour(contact) }}</span
+                                >
                             </div>
                         </div>
                         <!-- 

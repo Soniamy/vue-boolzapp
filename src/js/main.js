@@ -174,5 +174,19 @@ createApp({
             searchInput: '',
         };
     },
-    methods: {},
+    methods: {
+        getLastMessage(contact) {
+            if (contact.messages.length > 0) {
+                return contact.messages.at(-1).text;
+            }
+            return '';
+        },
+
+        getLastHour(contact) {
+            if (contact.messages.length > 0) {
+                return contact.messages.at(-1).date.toString().slice(-8, -3);
+            }
+            return '';
+        },
+    },
 }).mount('#app');
