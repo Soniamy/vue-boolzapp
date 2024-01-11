@@ -1,0 +1,146 @@
+:root {
+    --wrapper-width: 1400px;
+    --search: #f6f6f6;
+    --bg-color-up: #009688;
+    --bg-color-down: #dcdbd1;
+    --boolzap-header: #eaeaea;
+    --boolzap-footer: #f3eeea;
+    --updates-lightblue: #8edafc;
+    --active-chat: #e9ebeb;
+    --message-left: #ffffff;
+    --message-right: #d5f9ba;
+    --icons: #b1b1b1;
+    --last-message: #bbc6d4;
+}
+/* --------- BARRA LATERALE ---------- */
+
+#boolzap-side {
+    width: 35%;
+    border-right: 1px solid var(--icons);
+}
+
+#boolzap-side .my-account {
+    background-color: var(--boolzap-header);
+    padding: 10px;
+}
+
+#boolzap-side .notifications {
+    background-color: var(--updates-lightblue);
+    padding: 10px 20px;
+}
+
+#boolzap-side .search {
+    padding: 5px 5px;
+    background-color: var(--boolzap-footer);
+}
+
+#boolzap-side .chat-thumb-list {
+    overflow: scroll;
+}
+
+/* -------------------------------- */
+
+#boolzap-side .notifications .notifications-icon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+}
+#boolzap-side .notifications .notifications-icon i {
+    color: var(--updates-lightblue);
+    font-size: 16px;
+}
+
+#boolzap-side .search i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+#boolzap-side .search .fa-magnifying-glass {
+    left: 10px;
+}
+#boolzap-side .search .fa-xmark {
+    right: 10px;
+    padding: 5px 10px;
+}
+#boolzap-side .search .fa-xmark:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20%;
+}
+
+#boolzap-side .search input {
+    padding: 5px 5px 5px 35px;
+}
+
+#boolzap-side .chat-thumb-list .chat-thumb {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#boolzap-side .chat-thumb-list .chat-thumb:hover {
+    background-color: var(--active-chat);
+}
+
+#boolzap-side .chat-thumb-list .chat-thumb img {
+    height: 60px;
+    width: 60px;
+    margin: 0 20px 0 10px;
+}
+
+/* --------- BARRA PRINCIPALE ---------- */
+
+#boolzap-main {
+    width: 65%;
+}
+
+#boolzap-main .receiver {
+    padding: 10px;
+    background-color: var(--boolzap-header);
+}
+
+#boolzap-main .chat-main-list {
+    height: 100%;
+    overflow: scroll;
+}
+
+#boolzap-main .chat-main {
+    background-image: url('../images/mine.jpg');
+    background-repeat: repeat;
+    overflow: scroll;
+}
+
+#boolzap-main .input-message {
+    padding: 10px 0;
+    background-color: var(--boolzap-footer);
+}
+
+/* ----------------------------- */
+
+/*chat main */
+#boolzap-main .chat-main .sent {
+    justify-content: end;
+}
+
+#boolzap-main .chat-main .received {
+    justify-content: start;
+}
+#boolzap-main .chat-main .received .text-message {
+    background-color: var(--message-left);
+}
+#boolzap-main .chat-main .sent .text-message {
+    background-color: var(--message-right);
+}
+#boolzap-main .chat-main .text-message {
+    position: relative;
+    padding: 12px 100px 18px 15px;
+    border-radius: 5px;
+    min-width: 200px;
+}
+.text-message .time-message {
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    font-size: 10px;
+    color: grey;
+}

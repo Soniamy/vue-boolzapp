@@ -1,0 +1,273 @@
+<html>
+    <head>
+        <title>Vue Boolzapp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf8" />
+        <!-- css file  -->
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/general.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+
+        <!-- bootstrap  -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css"
+            integrity="sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A=="
+            crossorigin="anonymous"
+        />
+
+        <!-- google font  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- font awesome  -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css"
+            integrity="sha512-KOWhIs2d8WrPgR4lTaFgxI35LLOp5PRki/DxQvb7mlP29YZ5iJ5v8tiLWF7JLk5nDBlgPP1gHzw96cZ77oD7zQ=="
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div
+            id="app"
+            class="d-flex_a justify-content-center align-items-center"
+        >
+            <div id="boolzap-viewport" class="d-flex_a">
+                <div id="boolzap-side" class="d-flex_a flex-column">
+                    <div class="my-account d-flex_a justify-content-between">
+                        <div
+                            class="my-avatar d-flex_a align-items-center gap-2"
+                        >
+                            <img src="images/avatar_io.jpg" alt="" />
+                            <span class="fw-bold fs-6">Marianna</span>
+                        </div>
+                        <div class="icons d-flex_a gap-2 align-items-center">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical me-2"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        class="notifications d-flex_a gap-3 align-items-center"
+                    >
+                        <div
+                            class="notifications-icon d-flex_a justify-content-center align-items-center"
+                        >
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="d-flex_a flex-column">
+                            <span class="fw-bold"
+                                >Ricevi notifiche di nuovi messaggi</span
+                            >
+                            <span class="text-decoration-underline"
+                                >Attiva notifiche desktop</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="search">
+                        <div class="position-relative">
+                            <input
+                                class="form-control"
+                                type="text"
+                                placeholder="Cerca o inizia una nuova chat"
+                            />
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+
+                    <div class="chat-thumb-list">
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_1.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold"> Michele </span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_2.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold"> Fabio </span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_3.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold"> Samuele</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_4.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold">
+                                        Alessandro B.
+                                    </span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_5.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold">
+                                        Alessandro L.
+                                    </span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_6.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold"> Claudia </span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_7.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold"> Federico </span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                        <div class="chat-thumb d-flex_a">
+                            <img src="images/avatar_8.jpg" alt="" />
+
+                            <div class="d-flex_a justify-content-between w-100">
+                                <div class="d-flex_a flex-column">
+                                    <span class="fs-6 fw-bold"> Davide</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+
+                                <span class="me-2"> 12:00 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="boolzap-main" class="d-flex_a flex-column">
+                    <div class="receiver d-flex_a justify-content-between">
+                        <div class="d-flex_a gap-2 align-items-center">
+                            <img src="images/avatar_1.jpg" alt="" />
+
+                            <div class="d-flex_a flex-column">
+                                <span class="fs-6 fw-bold">Michele</span>
+                                <span>ultimo accesso oggi alle ore 12:00</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex_a gap-3 align-items-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical me-2"></i>
+                        </div>
+                    </div>
+
+                    <div class="chat-main-list">
+                        <div class="h-100">
+                            <div
+                                class="chat-main h-100 d-flex_a flex-column gap-3 p-4"
+                            >
+                                <div class="d-flex_a sent">
+                                    <div class="text-message">
+                                        <span
+                                            >Hai portato a spasso il cane?</span
+                                        >
+                                        <span class="time-message"
+                                            >11/01/2024 15:30</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="d-flex_a sent">
+                                    <div class="text-message">
+                                        <span
+                                            >Ricordati di stendere i panni</span
+                                        >
+                                        <span class="time-message"
+                                            >11/01/2024 15:50</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="d-flex_a received">
+                                    <div class="text-message">
+                                        <span>Tutto fatto!</span>
+                                        <span class="time-message"
+                                            >11/01/2024 16:15</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-message d-flex_a align-items-center">
+                        <button class="icon">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </button>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Scrivi un messaggio"
+                        />
+
+                        <button class="icon">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- vue file  -->
+        <script src="https://unpkg.com/vue@3"></script>
+        <!-- axios file  -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
+            integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
