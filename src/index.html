@@ -94,7 +94,8 @@
                     <div class="chat-thumb-list">
                         <div
                             class="chat-thumb d-flex_a"
-                            v-for="contact in contacts"
+                            v-for="(contact,index) in contacts"
+                            @click="activeUser = index"
                             :class="[contact.visible ? '' : 'active_a']"
                         >
                             <img v-bind:src="contact.avatar" alt="" />
