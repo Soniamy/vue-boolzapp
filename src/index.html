@@ -30,6 +30,15 @@
             integrity="sha512-KOWhIs2d8WrPgR4lTaFgxI35LLOp5PRki/DxQvb7mlP29YZ5iJ5v8tiLWF7JLk5nDBlgPP1gHzw96cZ77oD7zQ=="
             crossorigin="anonymous"
         />
+        <!-- vue file  -->
+        <script src="https://unpkg.com/vue@3"></script>
+        <!-- axios file  -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
+            integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
     </head>
     <body>
         <div
@@ -43,7 +52,7 @@
                             class="my-avatar d-flex_a align-items-center gap-2"
                         >
                             <img src="images/avatar_io.jpg" alt="" />
-                            <span class="fw-bold fs-6">Marianna</span>
+                            <span class="fw-bold fs-6">{{myName}}</span>
                         </div>
                         <div class="icons d-flex_a gap-2 align-items-center">
                             <i class="fa-solid fa-circle-notch"></i>
@@ -83,18 +92,24 @@
                     </div>
 
                     <div class="chat-thumb-list">
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_1.jpg" alt="" />
+                        <div
+                            class="chat-thumb d-flex_a"
+                            v-for="contact in contacts"
+                        >
+                            <img v-bind:src="contacts[0].avatar" alt="" />
 
                             <div class="d-flex_a justify-content-between w-100">
                                 <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold"> Michele </span>
+                                    <span class="fs-6 fw-bold">
+                                        {{ contact.name }}
+                                    </span>
                                     <span>Ultimo messaggio inviato</span>
                                 </div>
 
-                                <span class="me-2"> 12:00 </span>
+                                <span class="me-2"> 12.50 </span>
                             </div>
                         </div>
+                        <!-- 
                         <div class="chat-thumb d-flex_a">
                             <img src="images/avatar_2.jpg" alt="" />
 
@@ -182,7 +197,7 @@
 
                                 <span class="me-2"> 12:00 </span>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
 
@@ -259,15 +274,6 @@
                 </div>
             </div>
         </div>
-        <!-- vue file  -->
-        <script src="https://unpkg.com/vue@3"></script>
-        <!-- axios file  -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
-            integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
