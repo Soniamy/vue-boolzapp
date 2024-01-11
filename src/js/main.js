@@ -24,20 +24,20 @@ const contacts = [
     {
         name: 'Fabio',
         avatar: './images/avatar_2.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
-                date: '20/03/2020 16:30:00',
+                date: '03/28/2020 16:30:00',
                 text: 'Ciao come stai?',
                 status: 'sent',
             },
             {
-                date: '20/03/2020 16:30:55',
+                date: '03/28/2020 16:30:55',
                 text: 'Bene grazie! Stasera ci vediamo?',
                 status: 'received',
             },
             {
-                date: '20/03/2020 16:35:00',
+                date: '03/20/2020 16:35:00',
                 text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                 status: 'sent',
             },
@@ -46,20 +46,20 @@ const contacts = [
     {
         name: 'Samuele',
         avatar: './images/avatar_3.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
-                date: '28/03/2020 10:10:40',
+                date: '04/03/2020 10:10:40',
                 text: 'La Marianna va in campagna',
                 status: 'received',
             },
             {
-                date: '28/03/2020 10:20:10',
+                date: '04/03/2020 10:20:10',
                 text: 'Sicuro di non aver sbagliato chat?',
                 status: 'sent',
             },
             {
-                date: '28/03/2020 16:15:22',
+                date: '04/03/2020 16:15:22',
                 text: 'Ah scusa!',
                 status: 'received',
             },
@@ -68,7 +68,7 @@ const contacts = [
     {
         name: 'Alessandro B.',
         avatar: './images/avatar_4.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
@@ -85,7 +85,7 @@ const contacts = [
     {
         name: 'Alessandro L.',
         avatar: './images/avatar_5.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
@@ -102,7 +102,7 @@ const contacts = [
     {
         name: 'Claudia',
         avatar: './images/avatar_6.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
@@ -124,7 +124,7 @@ const contacts = [
     {
         name: 'Federico',
         avatar: './images/avatar_7.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
@@ -141,7 +141,7 @@ const contacts = [
     {
         name: 'Davide',
         avatar: './images/avatar_8.jpg',
-        visible: false,
+        visible: true,
         messages: [
             {
                 date: '10/01/2020 15:30:55',
@@ -166,27 +166,27 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            contacts, // importato
+            contacts,
             myName: 'Marianna',
             newMessage: '',
             counter: 0,
             dtTime24: '',
             searchInput: '',
+            activeUser: 0,
         };
     },
     methods: {
         getLastMessage(contact) {
-            if (contact.messages.length > 0) {
-                return contact.messages.at(-1).text;
-            }
-            return '';
+            return contact.messages.length ? contact.messages.at(-1) : {};
         },
-
-        getLastHour(contact) {
-            if (contact.messages.length > 0) {
-                return contact.messages.at(-1).date.toString().slice(-8, -3);
-            }
-            return '';
+        getHour(message) {
+            return new Date(message.date).toLocaleTimeString('it-IT', {
+                hour: 'numeric',
+                minute: 'numeric',
+            });
+        },
+        getDate(message) {
+            return new Date(message.date).toLocaleString('it-IT');
         },
     },
 }).mount('#app');

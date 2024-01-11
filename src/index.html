@@ -95,122 +95,47 @@
                         <div
                             class="chat-thumb d-flex_a"
                             v-for="contact in contacts"
+                            :class="[contact.visible ? '' : 'active_a']"
                         >
-                            <img v-bind:src="contacts[0].avatar" alt="" />
+                            <img v-bind:src="contact.avatar" alt="" />
 
                             <div class="d-flex_a justify-content-between w-100">
                                 <div class="d-flex_a flex-column">
                                     <span class="fs-6 fw-bold">
                                         {{ contact.name }}
                                     </span>
-                                    <span>{{ getLastMessage(contact) }}</span>
+                                    <span>
+                                        {{ getLastMessage(contact).text}}
+                                    </span>
                                 </div>
 
                                 <span class="me-2">
-                                    {{ getLastHour(contact) }}</span
+                                    {{ getHour(getLastMessage(contact)) }}</span
                                 >
                             </div>
                         </div>
-                        <!-- 
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_2.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold"> Fabio </span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_3.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold"> Samuele</span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_4.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold">
-                                        Alessandro B.
-                                    </span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_5.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold">
-                                        Alessandro L.
-                                    </span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_6.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold"> Claudia </span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_7.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold"> Federico </span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>
-                        <div class="chat-thumb d-flex_a">
-                            <img src="images/avatar_8.jpg" alt="" />
-
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold"> Davide</span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
-
-                                <span class="me-2"> 12:00 </span>
-                            </div>
-                        </div>-->
                     </div>
                 </div>
 
                 <div id="boolzap-main" class="d-flex_a flex-column">
                     <div class="receiver d-flex_a justify-content-between">
-                        <div class="d-flex_a gap-2 align-items-center">
-                            <img src="images/avatar_1.jpg" alt="" />
+                        <div
+                            class="d-flex_a gap-2 align-items-center"
+                            :class="[ contacts[activeUser].visible ?  'd-flex_a' : 'hidden_a']"
+                        >
+                            <img
+                                v-bind:src="contacts[activeUser].avatar"
+                                alt="avatar 1"
+                            />
 
                             <div class="d-flex_a flex-column">
-                                <span class="fs-6 fw-bold">Michele</span>
-                                <span>ultimo accesso oggi alle ore 12:00</span>
+                                <span class="fs-6 fw-bold"
+                                    >{{contacts[activeUser].name}}</span
+                                >
+                                <span
+                                    >ultimo accesso oggi alle ore
+                                    {{getHour(getLastMessage(contacts[activeUser]))}}</span
+                                >
                             </div>
                         </div>
 
@@ -226,31 +151,15 @@
                             <div
                                 class="chat-main h-100 d-flex_a flex-column gap-3 p-4"
                             >
-                                <div class="d-flex_a sent">
+                                <div
+                                    class="d-flex_a"
+                                    v-for="message in contacts[activeUser].messages"
+                                    :class="message.status"
+                                >
                                     <div class="text-message">
-                                        <span
-                                            >Hai portato a spasso il cane?</span
-                                        >
+                                        <span>{{message.text}}</span>
                                         <span class="time-message"
-                                            >11/01/2024 15:30</span
-                                        >
-                                    </div>
-                                </div>
-                                <div class="d-flex_a sent">
-                                    <div class="text-message">
-                                        <span
-                                            >Ricordati di stendere i panni</span
-                                        >
-                                        <span class="time-message"
-                                            >11/01/2024 15:50</span
-                                        >
-                                    </div>
-                                </div>
-                                <div class="d-flex_a received">
-                                    <div class="text-message">
-                                        <span>Tutto fatto!</span>
-                                        <span class="time-message"
-                                            >11/01/2024 16:15</span
+                                            >{{message.date}}</span
                                         >
                                     </div>
                                 </div>
