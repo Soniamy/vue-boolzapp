@@ -198,7 +198,13 @@ createApp({
                     status: 'sent',
                     activeUser: messages.length,
                 });
-
+                setTimeout(() => {
+                    contact.messages.push({
+                        text: 'ok',
+                        status: 'received',
+                        activeUser: messages.length,
+                    });
+                }, 1000);
                 this.newMessage = '';
 
                 console.log(contact.messages);
