@@ -168,6 +168,18 @@
                                         <span class="time-message"
                                             >{{message.date}}</span
                                         >
+                                        <div class="menu">
+                                            <i
+                                                class="fa-solid fa-chevron-down"
+                                            ></i>
+                                            <div class="chevron-menu">
+                                                <span>Message Info</span>
+                                                <span
+                                                    @click="deleteMessage(activeUser,messages)"
+                                                    >Delete message</span
+                                                >
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

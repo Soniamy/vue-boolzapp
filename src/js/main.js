@@ -220,5 +220,8 @@ createApp({
                         .includes(this.searchInput.toLowerCase());
             }
         },
+        deleteMessage(position, messageDelete) {
+            this.contacts[position].messages.splice(messageDelete, 1);
+        },
     },
 }).mount('#app');
