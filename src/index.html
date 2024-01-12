@@ -85,6 +85,8 @@
                                 class="form-control"
                                 type="text"
                                 placeholder="Cerca o inizia una nuova chat"
+                                v-model="searchInput"
+                                @keyup="filterContact()"
                             />
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-xmark"></i>
@@ -92,29 +94,33 @@
                     </div>
 
                     <div class="chat-thumb-list">
-                        <div
-                            class="chat-thumb d-flex_a"
-                            v-for="(contact,index) in contacts"
-                            @click="activeUser = index"
-                            :class="[contact.visible ? '' : 'active_a']"
-                        >
-                            <img v-bind:src="contact.avatar" alt="" />
+                        <template v-for="(contact,index) in contacts">
+                            <div
+                                class="chat-thumb d-flex_a"
+                                @click="activeUser = index"
+                                v-if="contact.visible"
+                            >
+                                <img v-bind:src="contact.avatar" alt="" />
 
-                            <div class="d-flex_a justify-content-between w-100">
-                                <div class="d-flex_a flex-column">
-                                    <span class="fs-6 fw-bold">
-                                        {{ contact.name }}
-                                    </span>
-                                    <span>
-                                        {{ getLastMessage(contact).text}}
-                                    </span>
-                                </div>
-
-                                <span class="me-2">
-                                    {{ getHour(getLastMessage(contact)) }}</span
+                                <div
+                                    class="d-flex_a justify-content-between w-100"
                                 >
+                                    <div class="d-flex_a flex-column">
+                                        <span class="fs-6 fw-bold">
+                                            {{ contact.name }}
+                                        </span>
+                                        <span>
+                                            {{ getLastMessage(contact).text}}
+                                        </span>
+                                    </div>
+
+                                    <span class="me-2">
+                                        {{ getHour(getLastMessage(contact))
+                                        }}</span
+                                    >
+                                </div>
                             </div>
-                        </div>
+                        </template>
                     </div>
                 </div>
 

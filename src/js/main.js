@@ -211,5 +211,14 @@ createApp({
                 console.log(contact);
             } else this.newMessage = '';
         },
+        filterContact() {
+            for (let i = 0; i < this.contacts.length; i++) {
+                this.contacts[i].visible =
+                    this.searchInput == '' ||
+                    this.contacts[i].name
+                        .toLowerCase()
+                        .includes(this.searchInput.toLowerCase());
+            }
+        },
     },
 }).mount('#app');
