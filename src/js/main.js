@@ -188,5 +188,22 @@ createApp({
         getDate(message) {
             return new Date(message.date).toLocaleString('it-IT');
         },
+        sendNewMessage() {
+            const contact = this.contacts[this.activeUser];
+            const messages = this.contacts[this.activeUser].messages;
+
+            if (this.newMessage.trim() !== '') {
+                contact.messages.push({
+                    text: this.newMessage,
+                    status: 'sent',
+                    activeUser: messages.length,
+                });
+
+                this.newMessage = '';
+
+                console.log(contact.messages);
+                console.log(contact);
+            } else this.newMessage = '';
+        },
     },
 }).mount('#app');
