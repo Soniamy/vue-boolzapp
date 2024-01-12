@@ -160,7 +160,7 @@
                             >
                                 <div
                                     class="d-flex_a"
-                                    v-for="message in contacts[activeUser].messages"
+                                    v-for="(message,index) in contacts[activeUser].messages"
                                     :class="message.status"
                                 >
                                     <div class="text-message">
@@ -175,7 +175,7 @@
                                             <div class="chevron-menu">
                                                 <span>Message Info</span>
                                                 <span
-                                                    @click="deleteMessage(activeUser,messages)"
+                                                    @click="deleteMessage(activeUser,index)"
                                                     >Delete message</span
                                                 >
                                             </div>

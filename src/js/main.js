@@ -211,6 +211,8 @@ createApp({
                 console.log(contact);
             } else this.newMessage = '';
         },
+
+        // MILESTONE 4//
         filterContact() {
             for (let i = 0; i < this.contacts.length; i++) {
                 this.contacts[i].visible =
@@ -220,8 +222,9 @@ createApp({
                         .includes(this.searchInput.toLowerCase());
             }
         },
-        deleteMessage(position, messageDelete) {
-            this.contacts[position].messages.splice(messageDelete, 1);
+        // MILESTONE 5 //
+        deleteMessage(position, messageIndex) {
+            this.contacts[position].messages.splice(messageIndex, 1);
         },
     },
 }).mount('#app');
