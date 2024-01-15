@@ -169,8 +169,7 @@ createApp({
             contacts,
             myName: 'Marianna',
             newMessage: '',
-            counter: 0,
-            dtTime24: '',
+            date: '',
             searchInput: '',
             activeUser: 0,
         };
@@ -194,12 +193,14 @@ createApp({
 
             if (this.newMessage.trim() !== '') {
                 contact.messages.push({
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     text: this.newMessage,
                     status: 'sent',
                     activeUser: messages.length,
                 });
                 setTimeout(() => {
                     contact.messages.push({
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: 'ok',
                         status: 'received',
                         activeUser: messages.length,

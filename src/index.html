@@ -32,6 +32,13 @@
         />
         <!-- vue file  -->
         <script src="https://unpkg.com/vue@3"></script>
+        <!-- dayjs file  -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"
+            integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
         <!-- axios file  -->
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
@@ -97,7 +104,7 @@
                         <template v-for="(contact,index) in contacts">
                             <div
                                 class="chat-thumb d-flex_a"
-                                @click="activeUser = index"
+                                @click="this.activeUser = index"
                                 v-if="contact.visible"
                             >
                                 <img v-bind:src="contact.avatar" alt="" />
