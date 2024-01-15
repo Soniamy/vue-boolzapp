@@ -199,12 +199,20 @@ createApp({
                     activeUser: messages.length,
                 });
                 setTimeout(() => {
-                    contact.messages.push({
-                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                        text: 'ok',
-                        status: 'received',
-                        activeUser: messages.length,
-                    });
+                    //BONUS API//
+                    axios
+                        .get(
+                            'https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand'
+                        )
+                        .then((res) => {
+                            console.log(res);
+                            contact.messages.push({
+                                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                                text: res.data[0].content.rendered,
+                                status: 'received',
+                                activeUser: messages.length,
+                            });
+                        });
                 }, 1000);
                 this.newMessage = '';
 
