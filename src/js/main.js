@@ -3,6 +3,7 @@ const contacts = [
         name: 'Michele',
         avatar: './images/avatar_1.jpg',
         visible: true,
+        api: 'https://animechan.xyz/api/random/anime?title=naruto',
         messages: [
             {
                 date: '10/01/2020 15:30:55',
@@ -25,6 +26,7 @@ const contacts = [
         name: 'Fabio',
         avatar: './images/avatar_2.jpg',
         visible: true,
+        api: 'https://api.chucknorris.io/jokes/random',
         messages: [
             {
                 date: '03/28/2020 16:30:00',
@@ -193,7 +195,7 @@ createApp({
 
             if (this.newMessage.trim() !== '') {
                 contact.messages.push({
-                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
                     text: this.newMessage,
                     status: 'sent',
                     activeUser: messages.length,
@@ -202,13 +204,15 @@ createApp({
                     //BONUS API//
                     axios
                         .get(
-                            'https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand'
+                            this.contacts[this.activeUser].api
+                                ? this.contacts[this.activeUser].api
+                                : 'https://animechan.xyz/api/random/anime?title=naruto'
                         )
                         .then((res) => {
                             console.log(res);
                             contact.messages.push({
-                                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                                text: res.data[0].content.rendered,
+                                date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
+                                text: res.data.value || res.data.quote,
                                 status: 'received',
                                 activeUser: messages.length,
                             });
